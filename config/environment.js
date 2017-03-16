@@ -1,11 +1,20 @@
 /* jshint node: true */
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'mtg-grimoire-frontend',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+      'default-src': ["'none'"],
+      'connect-src': ["'self'", "https://mtg-grimoire-api.herokuapp.com"],
+      'font-src': ["'self'", "https://fonts.gstatic.com"],
+      'script-src': ["'self'", "'unsafe-eval'"],
+      'img-src': ["'self'"],
+      'style-src': ["'self'", "https://fonts.googleapis.com"],
+      'media-src': ["'self'"]
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
