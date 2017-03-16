@@ -1,5 +1,8 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div class="ui left fixed vertical inverted menu">
+    {{#link-to "index" class="header item"}}MTG : Grimoire{{/link-to}} 
+    {{#link-to "cards" class="item"}}Cards{{/link-to}}
+</div>
 
-{{outlet}}
+<div id="main">
+    {{outlet}}
+</div>
