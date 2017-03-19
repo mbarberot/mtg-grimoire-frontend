@@ -10,10 +10,17 @@ module.exports = function (defaults) {
       includePaths: ['bower_components/semantic-ui-sass/app/assets/stylesheets']
     }
   });
-  var cssAssets = new Funnel('bower_components/semantic-ui-sass/app/assets/fonts/semantic-ui', {
+  var semanticUiAssets = new Funnel('bower_components/semantic-ui-sass/app/assets/fonts/semantic-ui', {
     srcDir: '/',
     include: ['**/*.*'],
-    destDir: '/assets/fonts'
+    destDir: '/fonts'
   });
-  return app.toTree(new MergeTrees([cssAssets]));
+  
+  app.import('bower_components/mana/css/mana.css');
+  var manaAssets = new Funnel('bower_components/mana/fonts', {
+    srcDir: '/',
+    include: ['**/*.*'],
+    destDir: '/fonts'
+  });
+  return app.toTree(new MergeTrees([semanticUiAssets, manaAssets]));
 };

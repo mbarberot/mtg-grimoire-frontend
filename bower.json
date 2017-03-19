@@ -1,6 +1,7 @@
 {
   "name": "mtg-grimoire-frontend",
   "dependencies": {
-    "semantic-ui-sass": "*"
+    "semantic-ui-sass": "*",
+    "mana": "*"
   }
 }
