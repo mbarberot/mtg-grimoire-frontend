@@ -29,7 +29,7 @@
                     {{#each model as |card|}}
                     <tr>
                         <td class="collapsing">{{card.name}}</td>
-                        <td class="collapsing">{{card.manaCost}}</td>
+                        <td class="collapsing">{{mana card.manaCost 2}}</td>
                         <td class="collapsing">{{card.type}}</td>
                         <td>
                             {{#if card.tags}}
