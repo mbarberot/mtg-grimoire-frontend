@@ -6,15 +6,6 @@ module.exports = function (environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
-    contentSecurityPolicy: {
-      'default-src': ["'none'"],
-      'connect-src': ["'self'", "https://mtg-grimoire-api.herokuapp.com"],
-      'font-src': ["'self'", "https://fonts.gstatic.com"],
-      'script-src': ["'self'", "'unsafe-eval'"],
-      'img-src': ["'self'"],
-      'style-src': ["'self'", "https://fonts.googleapis.com"],
-      'media-src': ["'self'"]
-    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -38,6 +29,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.GRIMOIRE_API_URL = "http://localhost:8080";
   }
 
   if (environment === 'test') {
@@ -52,8 +44,18 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.GRIMOIRE_API_URL = "https://mtg-grimoire-api.herokuapp.com";
   }
+
+  ENV.contentSecurityPolicy = {
+      'default-src': ["'none'"],
+      'connect-src': ["'self'", ENV.APP.GRIMOIRE_API_URL],
+      'font-src': ["'self'", "https://fonts.gstatic.com"],
+      'script-src': ["'self'", "'unsafe-eval'"],
+      'img-src': ["'self'"],
+      'style-src': ["'self'", "https://fonts.googleapis.com"],
+      'media-src': ["'self'"]
+    };
 
   return ENV;
 };

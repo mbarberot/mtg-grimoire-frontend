@@ -1,6 +1,7 @@
 import DS from 'ember-data';
+import ENV from '../config/environment';
 
 export default DS.RESTAdapter.extend({
-    host: "https://mtg-grimoire-api.herokuapp.com/api"
-
+    host: ENV.APP.GRIMOIRE_API_URL,
+    namespace: 'api'
 });
