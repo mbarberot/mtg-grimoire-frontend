@@ -1,11 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    actions: {
-        search() {
-            let params = this.getProperties('query');
-            let cards = this.get('store').query('card', params);    
-            this.set('model', cards);
-        }
+  meta: Ember.computed('meta', {
+    get() {
+      console.log(this.get('model.meta'));
+      return this.get('model.meta');
     }
+  }),
+
+  actions: {
+    search() {
+      this.model(this.getProperties('query', 'page', 'size'));
+    }
+  }
 });
